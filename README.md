@@ -87,7 +87,8 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
 - "Pointer" means "Memory Address"
 - HTTP Responses  
    HTTP/1.1 200 OK
-     <!doctype html></html>
+
+   <!doctype html></html>
 
   | Decimal | Character |
   | ------- | --------- |
