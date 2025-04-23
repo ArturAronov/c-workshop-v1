@@ -150,3 +150,19 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
       return 0;
   }
   ```
+
+- ```
+  char *to_path(char *req)
+  // this is called Forward-declare
+
+  int main() {
+    char *req = "GET /blog HTTP/1.1";
+    char *path = to_path(req);
+
+    return 0;
+  }
+
+  char *to_path(char *req) {
+    char *start = req;
+  }
+  ```
