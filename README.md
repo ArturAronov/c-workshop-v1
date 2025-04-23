@@ -150,3 +150,20 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
       return 0;
   }
   ```
+
+- | Feature                | `char *test` / `char* test`          | `char test[]` / `char[] test`    |
+  | ---------------------- | ------------------------------------ | -------------------------------- |
+  | **Type**               | Pointer to a character               | Array of characters              |
+  | **Memory Allocation**  | Pointer stores address of a string   | Array stores the full string     |
+  | **Initialization**     | Points to a string literal           | Copies string literal into array |
+  | **Re-assignability**   | Can point to a different string      | Cannot be reassigned             |
+  | **String Mutability**  | Immutable (if pointing to a literal) | Mutable                          |
+  | **Pointer Mutability** | Mutable                              | Immutable                        |
+  | **Memory Location**    | Heap or read-only segment            | Stack or static memory           |
+  | **Example**            | `char *test = "Hello";`              | `char test[] = "Hello";`         |
+
+- `void *memcpy(void *dest, const void *src, size_t n`
+  - Parameters:
+    - `dest`: Pointer to the destination memory where the content is to be copied
+    - `src`: Pointer to the source memory from which the content is to be copied
+    - `n`: Number of bytes to copy
