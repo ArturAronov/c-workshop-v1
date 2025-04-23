@@ -136,7 +136,7 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
   ```
 
   if you want to see actual memory address where the `header` is stored:  
-   `printf("Header: %zud", header)`
+   `printf("Header: %zu", header)`
 
   ```
   #include <stdio.h>

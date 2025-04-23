@@ -20,13 +20,13 @@ int main() {
     // a zero byte in the string. Before you run the program, what do you think it will print?
     // 💡 It only printed "HTT"
 
-    // 👉 Try changing this `%s` to `%zud` (ignore the compiler warning).
+    // 👉 Try changing this `%s` to `%zu` (ignore the compiler warning).
     printf("\n\n");
     printf("That output was from write(). This is from printf: %s\n", header);
     printf("That output was from write(). This is from printf: %s\n", (char*)0);
     printf("That output was from write(). This is from printf: %s\n", (char*)42069);
 
-    // 👉 Try changing the `%zud` back to `%s` and then replace the printf call's
+    // 👉 Try changing the `%zu` back to `%s` and then replace the printf call's
     // last argument (originally `header`) with this argument instead: `(char*)123456`
     // 💡 Returns: HTTP/1.1 200 OK[1]    91355 segmentation fault  ./app2
 
