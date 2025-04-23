@@ -162,8 +162,9 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
   | **Memory Location**    | Heap or read-only segment            | Stack or static memory           |
   | **Example**            | `char *test = "Hello";`              | `char test[] = "Hello";`         |
 
-- `void *memcpy(void *dest, const void *src, size_t n`
+- `void *memcpy(void *dest, const void *src, size_t n);`
   - Parameters:
     - `dest`: Pointer to the destination memory where the content is to be copied
     - `src`: Pointer to the source memory from which the content is to be copied
     - `n`: Number of bytes to copy
+  - Return value: A pointer to destination (`dest`);
