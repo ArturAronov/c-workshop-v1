@@ -1,5 +1,4 @@
 # C Fundamentals Workshop
-
 Welcome!
 
 There are [slides for this workshop](https://docs.google.com/presentation/d/1CGtDVSazrJHI52OnwwJXgogQEHs63lrasfQWJvmcYM0/edit?usp=sharing) which reference the exercises in this repo.
@@ -38,7 +37,7 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
 
 ## Notes
 
-00000000000000100000001000000011  
+00000000000000100000001000000011
 (grouped by bytes - 8) ⤵️
 
 | Binary   | Decimal Representation            | Decimal Value |
@@ -78,14 +77,14 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
   | 11111111 | 2<sup>7</sup> + 2<sup>6</sup> + 2<sup>5</sup> + 2<sup>4</sup> + 2<sup>3</sup> + 2<sup>2</sup> + 2<sup>1</sup> + 2<sup>0</sup> | 255 |
   | 11111000 | 2<sup>7</sup> + 2<sup>6</sup> + 2<sup>5</sup> + 2<sup>3</sup> | 248 |
 
-- `write()` function takes in 3 integers  
-  `write(1, "Hello World", 13);` gets converted to:  
+- `write()` function takes in 3 integers
+  `write(1, "Hello World", 13);` gets converted to:
   `write(1, 140732657256124, 13);`
 
   - 140732657256124 is a memory address in decimal form (0x7ffee3b6bc3c in hexadecimal).
 
 - "Pointer" means "Memory Address"
-- HTTP Responses  
+- HTTP Responses
    HTTP/1.1 200 OK
    <!doctype html></html>
 
@@ -108,16 +107,16 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
   | 75      | K         |
   | 0       |           |
 
-  0 byte at the is an null terminator.  
+  0 byte at the is an null terminator.
    When working with strings in C, a null terminator (a 0 byte, represented as \0 in C) is always implicitly added at the end of strings to indicate the end of the string. Without this null terminator, the string wouldn't be properly terminated in memory.
 
-  `char *header = "HTTP/1.1 200 OK";` this means:  
-   "address of a byte" (**char** means "byte")  
-   aka "pointer to a byte" ("pointer" means "memory address")  
-   in memory, **header** is an integer  
-   (namely, the memory address of the first byte in the array)  
-   `char *header = 415325`  
-   `write(1, 415325, 15)`  
+  `char *header = "HTTP/1.1 200 OK";` this means:
+   "address of a byte" (**char** means "byte")
+   aka "pointer to a byte" ("pointer" means "memory address")
+   in memory, **header** is an integer
+   (namely, the memory address of the first byte in the array)
+   `char *header = 415325`
+   `write(1, 415325, 15)`
    415325 is a memory address
 
   ```
@@ -135,7 +134,7 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
   }
   ```
 
-  if you want to see actual memory address where the `header` is stored:  
+  if you want to see actual memory address where the `header` is stored:
    `printf("Header: %zu", header)`
 
   ```
@@ -168,3 +167,41 @@ Fun fact: macOS actually ships with `clang` but aliases it to `gcc`, so if you r
     - `src`: Pointer to the source memory from which the content is to be copied
     - `n`: Number of bytes to copy
   - Return value: A pointer to destination (`dest`);
+
+- `&` or address-of operator, returns address of the variable
+- Local variables in a function are stored in the stack and their memory is automatically deallocated when the function ends. To preserve a value beyond the function's scope, use `malloc()` for heap allocation and explicitly free the memory with `free()` when it's no longer needed.
+  - `malloc()` uses the heap
+  - On success it returns a pointer (`void*`) to the beginning of the allocated memory block
+  - On failure it returns `NULL`
+
+- memory structure:
+  ```
+  +=================+
+  |                 |
+  |   EXECUTABLE +  |
+  |    CONSTANTS    |
+  |                 |
+  +=================+
+  |                 |
+  |   GLOBAL VARS   |
+  |                 |
+  +=================+
+  |                 |
+  |                 |
+  |      STACK      |
+  |                 |
+  |                 |
+  +=================+
+  |                 |
+  |                 |
+  |                 |
+  |                 |
+  |                 |
+  |       HEAP      |
+  |                 |
+  |                 |
+  |                 |
+  |                 |
+  |                 |
+  +=================+
+  ```
